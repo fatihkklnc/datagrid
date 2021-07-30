@@ -37,7 +37,10 @@ namespace WindowsFormsApp2
        
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            for(int i=0;i<dataGridView2.Rows.Count;i++)
+            {
+
+            }
             
 
             
@@ -46,6 +49,7 @@ namespace WindowsFormsApp2
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
             ch1 = (DataGridViewCheckBoxCell)dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0];
 
@@ -66,7 +70,7 @@ namespace WindowsFormsApp2
                     if (e.RowIndex != -1)
                     {
                         ch1.Value = true;
-                        tablo.Rows.Add(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value, dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value);
+                        tablo.Rows.Add(dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value, dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value, dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value);
                     }
                         break;
             }
@@ -79,11 +83,13 @@ namespace WindowsFormsApp2
         {
             tablo.Columns.Add("ADI", typeof(string));
             tablo.Columns.Add("NUMARASI", typeof(string));
+            tablo.Columns.Add("E-Mail", typeof(string));
             dataGridView2.DataSource = tablo;
             tablo2.Columns.Add("ADI", typeof(string));
             tablo2.Columns.Add("NUMARASI", typeof(string));
-            tablo2.Rows.Add("FAtih", "05301505815");
-            tablo2.Rows.Add("FAtih2", "05301505815");
+            tablo2.Columns.Add("E-Mail", typeof(string));
+            tablo2.Rows.Add("FAtih", "05301505815","fatihkklnc@gmail.com");
+            tablo2.Rows.Add("FAtih2", "05301505815", "fatihkklnc@gmail.com");
             dataGridView1.DataSource = tablo2;
 
         }
@@ -103,7 +109,7 @@ namespace WindowsFormsApp2
 
                     if (Convert.ToBoolean(ch1.Value) == false)
                     {
-                        tablo.Rows.Add(dataGridView1.Rows[i].Cells[1].Value, dataGridView1.Rows[i].Cells[2].Value);
+                        tablo.Rows.Add(dataGridView1.Rows[i].Cells[1].Value, dataGridView1.Rows[i].Cells[2].Value, dataGridView1.Rows[i].Cells[3].Value);
                         ch1.Value = true;
                     }
 
